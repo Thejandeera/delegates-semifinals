@@ -11,8 +11,8 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/project
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.2512623547830979 -0.21818728395981496 -0.943006648007898 4.513868672193883
-  position 4.2257468075925075 -18.253332069473394 10.166542212490512
+  orientation 0.20555768678517744 -0.1408366161423855 -0.9684580966449138 4.313239259542143
+  position 6.822316612272858 -14.62930059969836 6.0429653980314795
 }
 TexturedBackground {
 }
@@ -20,7 +20,6 @@ TexturedBackgroundLight {
   castShadows FALSE
 }
 RectangleArena {
-  translation 0.03 0 0
   floorSize 5 10
   floorAppearance Parquetry {
     type "light strip"
