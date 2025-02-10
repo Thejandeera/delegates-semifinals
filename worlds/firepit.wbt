@@ -6,12 +6,13 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/apartment_structure/protos/Wall.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Roughcast.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/Floor.proto"
 
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.29001538442269603 0.1777207065123961 0.9403756841150726 2.0960412065826075
-  position 5.796780440772206 -14.051120613417659 8.902455228832354
+  orientation 0.2512623547830979 -0.21818728395981496 -0.943006648007898 4.513868672193883
+  position 4.2257468075925075 -18.253332069473394 10.166542212490512
 }
 TexturedBackground {
 }
@@ -19,10 +20,52 @@ TexturedBackgroundLight {
   castShadows FALSE
 }
 RectangleArena {
+  translation 0.03 0 0
   floorSize 5 10
   floorAppearance Parquetry {
-    type "chequered"
-    IBLStrength 9
+    type "light strip"
+    IBLStrength 0
+  }
+}
+Floor {
+  translation 0.14 0.11 0
+  contactMaterial ""
+  size 0.25 0.25
+  tileSize 0.25 0.25
+  appearance Parquetry {
+    type "light strip"
+    colorOverride 1 0 0
+    textureTransform TextureTransform {
+    }
+    IBLStrength 0
+  }
+}
+Floor {
+  translation 0.14 0.11 0
+  name "floor(1)"
+  contactMaterial ""
+  size 0.75 0.75
+  tileSize 0.75 0.75
+  appearance Parquetry {
+    type "light strip"
+    colorOverride 1 0.333333 0
+    textureTransform TextureTransform {
+    }
+    IBLStrength 0
+  }
+}
+Floor {
+  translation 0.14 0.11 0
+  name "floor(2)"
+  contactMaterial ""
+  size 1.25 1.25
+  tileSize 1.25 1.25
+  appearance Parquetry {
+    type "light strip"
+    colorOverride 1 1 0.498039
+    textureTransform TextureTransform {
+    }
+    IBLStrength 0
   }
 }
 Wall {
