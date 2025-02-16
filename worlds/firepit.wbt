@@ -11,8 +11,8 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/project
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.20555768678517744 -0.1408366161423855 -0.9684580966449138 4.313239259542143
-  position 6.822316612272858 -14.62930059969836 6.0429653980314795
+  orientation -0.12467969686709832 0.42105065595107616 0.8984271357835854 0.6367844016131533
+  position -1.0815402253671549 -3.1053128083548196 0.4724655309227589
 }
 TexturedBackground {
 }
@@ -20,11 +20,89 @@ TexturedBackgroundLight {
   castShadows FALSE
 }
 RectangleArena {
+  translation 0.03 0 0
   floorSize 5 10
   floorAppearance Parquetry {
     type "light strip"
     IBLStrength 0
   }
+}
+Robot {
+  translation 0.171172 -2.55204 0.020688
+  rotation -0.035532705057560544 -0.12337201756020115 -0.9917241411574177 2.97061
+  children [
+    DEF Body Pose {
+      translation 0 0 0.042
+      children [
+        Shape {
+          appearance PBRAppearance {
+            roughness 1
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.08
+            radius 0.07
+          }
+        }
+      ]
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 413.65381130711074
+        anchor 0.07 0 0.025
+      }
+      device [
+        RotationalMotor {
+          name "motor_1"
+        }
+      ]
+      endPoint Solid {
+        translation 0.07 0 0.025
+        rotation -0.4441432810962619 0.7783234634303728 -0.4437897386497305 1.8180544544396244
+        children [
+          DEF wheel Shape {
+            appearance PBRAppearance {
+              baseColor 1 0 0
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.01
+              radius 0.025
+            }
+          }
+        ]
+        boundingObject USE wheel
+        physics DEF wheel_physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 413.8607527239277
+        anchor -0.07 0 0.025
+      }
+      device [
+        RotationalMotor {
+          name "motor_2"
+        }
+      ]
+      endPoint Solid {
+        translation -0.07 0 0.025
+        rotation -0.3740050841785785 0.8488009170585503 -0.3737073724308079 1.7332118118366717
+        children [
+          USE wheel
+        ]
+        name "solid(1)"
+        boundingObject USE wheel
+        physics USE wheel_physics
+      }
+    }
+  ]
+  boundingObject USE Body
+  physics Physics {
+  }
+  controller "drive_controller"
 }
 Floor {
   translation 0.14 0.11 0
