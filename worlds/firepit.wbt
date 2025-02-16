@@ -6,13 +6,13 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/apartment_structure/protos/Wall.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Roughcast.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/solids/protos/SolidBox.proto"
 
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.12467969686709832 0.42105065595107616 0.8984271357835854 0.6367844016131533
-  position -1.0815402253671549 -3.1053128083548196 0.4724655309227589
+  orientation -0.32243541468191744 0.2833834139645999 0.9031773048790963 1.7997177376457112
+  position 1.05355757935519 -10.08160932305148 7.81201597481653
 }
 TexturedBackground {
 }
@@ -103,47 +103,6 @@ Robot {
   physics Physics {
   }
   controller "drive_controller"
-}
-Floor {
-  translation 0.14 0.11 0
-  contactMaterial ""
-  size 0.25 0.25
-  tileSize 0.25 0.25
-  appearance Parquetry {
-    type "light strip"
-    colorOverride 1 0 0
-    textureTransform TextureTransform {
-    }
-    IBLStrength 0
-  }
-}
-Floor {
-  translation 0.14 0.11 0
-  name "floor(1)"
-  contactMaterial ""
-  size 0.75 0.75
-  tileSize 0.75 0.75
-  appearance Parquetry {
-    type "light strip"
-    colorOverride 1 0.333333 0
-    textureTransform TextureTransform {
-    }
-    IBLStrength 0
-  }
-}
-Floor {
-  translation 0.14 0.11 0
-  name "floor(2)"
-  contactMaterial ""
-  size 1.25 1.25
-  tileSize 1.25 1.25
-  appearance Parquetry {
-    type "light strip"
-    colorOverride 1 1 0.498039
-    textureTransform TextureTransform {
-    }
-    IBLStrength 0
-  }
 }
 Wall {
   translation -1.62001 2.25 0
@@ -1343,4 +1302,48 @@ Wall {
   rotation 0 0 -1 1.57079
   name "wall(123)"
   size 0.01 1.75 0.1
+}
+SolidBox {
+  translation 0.13 0.12 0.01
+  size 1.25 1.25 1e-05
+  appearance PBRAppearance {
+    baseColor 1 1 0.498039
+    baseColorMap ImageTexture {
+      url [
+        "yellow.png"
+      ]
+    }
+    roughness 0.5
+    metalness 0
+  }
+}
+SolidBox {
+  translation 0.13 0.12 0.01
+  name "box(1)"
+  size 0.75 0.75 1e-05
+  appearance PBRAppearance {
+    baseColor 1 0.333333 0
+    baseColorMap ImageTexture {
+      url [
+        "yellow.png"
+      ]
+    }
+    roughness 0.5
+    metalness 0
+  }
+}
+SolidBox {
+  translation 0.13 0.12 0.01
+  name "box(2)"
+  size 0.25 0.25 1e-05
+  appearance PBRAppearance {
+    baseColor 1 0 0
+    baseColorMap ImageTexture {
+      url [
+        "yellow.png"
+      ]
+    }
+    roughness 0.5
+    metalness 0
+  }
 }
